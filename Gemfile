@@ -6,6 +6,7 @@ gem 'rails', '3.2.6'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3', '1.3.5'
+gem 'haml'
 
 
 # Gems used only for assets and not required
@@ -25,6 +26,7 @@ gem 'jquery-rails'
 group :developmet, :test do
 	gem 'sqlite3', '1.3.5'
 	gem 'rspec-rails', '2.10.0'
+	gem 'haml-rails'
 end
 
 group :test do

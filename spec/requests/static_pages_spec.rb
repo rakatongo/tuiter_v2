@@ -1,39 +1,31 @@
 require 'spec_helper'
 
 describe "StaticPages" do
-	let(:base_title){ "Tuiter Reloaded"}
+	subject { page }
+	let(:base_title){ "Tuiter_v2" }
 	describe "Home page" do
-		it "should not have right title" do
-			visit '/static_pages/home'
-			page.should_not have_selector('title',text: "#{base_title} | Home")
-		end
-		it "should have the right title" do
-			visit '/static_pages/home'
-			page.should have_selector('title', text: "#{base_title}")
-		end
-		it "should have the h1 selector" do
-			visit '/static_pages/home'
-			page.should have_selector('h1', text: "Home")
-		end
+		before { visit root_path }
+
+		it { should_not have_selector 'title', text: full_title('Home') }
+		it { should have_selector 'title', text: full_title('') }
+		it { should have_selector 'h1', text: "Bienvenido" }
 	end
 	describe "Help page" do
-		it "should have the right title" do
-			visit '/static_pages/help'
-			page.should have_selector('title', text: "#{base_title} | Help")
-		end
-		it "should have the h1 selector" do
-			visit '/static_pages/help'
-			page.should have_selector('h1', text: 'Help')
-		end
+		before { visit help_path }
+
+		it { should have_selector 'title', text: full_title("Help")}		
+		it { should have_selector 'h1',text: "Help" }
 	end
 	describe "About page" do
-		it "should have the right title" do
-			visit '/static_pages/about'
-			page.should have_selector('title', text: "#{base_title} | About")
-		end
-		it "should have the h1 selector" do
-			visit '/static_pages/about'
-			page.should have_selector('h1', text: 'About')
-		end
+		before { visit about_path }
+
+		it { should have_selector 'title',text: full_title('About') }
+		it { should have_selector 'h1', text: "About" }
+	end
+	describe "Contact page" do
+		before { visit contact_path }
+
+		it { should have_selector 'title', text: full_title("Contacto")}
+		it { should have_selector 'h1', text: "Contacto" }
 	end
 end

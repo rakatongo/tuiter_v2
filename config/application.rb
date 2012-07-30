@@ -15,6 +15,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+
 module TuiterV2
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -64,5 +65,10 @@ module TuiterV2
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.generators do |g|
+        g.test_framework :rspec
+        g.integration_tool :rspec
+    end
   end
 end

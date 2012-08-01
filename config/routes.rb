@@ -1,5 +1,5 @@
 TuiterV2::Application.routes.draw do  
-
+  resources :users
   
   match '/registro', to: 'users#new'
   match '/contact', to: 'static_pages#contact'  

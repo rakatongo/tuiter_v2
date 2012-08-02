@@ -1,7 +1,11 @@
 TuiterV2::Application.routes.draw do  
   resources :users
-  
+  resources :sessions, only: [:new, :create, :destroy ]
+
   match '/registro', to: 'users#new'
+  match '/login', to: 'sessions#new'
+  match '/logout', to: 'sessions#destroy', via: :delete
+
   match '/contact', to: 'static_pages#contact'  
   match '/about', to: 'static_pages#about'
   match '/help', to: 'static_pages#help'

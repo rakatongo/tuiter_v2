@@ -11,18 +11,18 @@ describe "UserPages" do
   	it { should have_selector 'h1', text: "Registro"}
   	describe "with invalid informacion" do
   		it "should not create an account" do
-  			expect { click_buttom submit }.not_to change(User, :count)
+  			expect { click_button submit }.not_to change(User, :count)
   		end
   	end
   	describe "with valid informacion" do
   		before do
-  			fill_IN "Name", with: "Example user"
+  			fill_in "Name", with: "Example user"
   			fill_in "Email", with: "user@example.com"
   			fill_in "Password", with: "alejandro"
   			fill_in "Confirmation", with: "alejandro"
   		end
   		it "should create el usuario" do
-  			expect { click_buttom }.to change(User, :count)
+  			expect { click_button }.to change(User, :count)  
   		end
   	end
   end
